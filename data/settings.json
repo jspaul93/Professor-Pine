@@ -21,8 +21,8 @@
     "roles": true
   },
   "channels": {
-    "bot_lab": "the-bot-lab",
-    "mod_bot_lab": "mod-bot-only",
+    "bot_lab": "bot-commands",
+    "mod_bot_lab": "admin-bot-commands",
     "unown": "unown-sightings",
     "ex_gym_raids": "potential-ex-gym-raids"
   },
