@@ -20,6 +20,7 @@
     "mysql": "^2.15.0",
     "node-cleanup": "^2.1.2",
     "node-persist": "^2.1.0",
+    "npm": "^5.8.0",
     "request-promise": "^4.2.2",
     "tesseract.js": "github:jspaul93/tesseract.js",
     "togeojson-with-extended-style": "^0.13.1",
