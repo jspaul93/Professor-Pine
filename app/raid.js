@@ -88,8 +88,10 @@ class Raid {
 						// so schedule its deletion
 						raid.deletion_time = deletion_time;
 
-						this.sendDeletionWarningMessage(raid);
-
+						if(settings.send_deletion_warning==true){
+							this.sendDeletionWarningMessage(raid);
+						}
+						
 						this.persistRaid(raid);
 					}
 					if (raid.deletion_time && now > raid.deletion_time) {
@@ -898,6 +900,12 @@ class Raid {
 			pokemon_url = !!raid.pokemon.name ?
 				`${private_settings.pokemon_url_base}${pokemon}-Pokemon-Go.png` :
 				'',
+			pokemon_cp_string = raid.pokemon.boss_cp > 0 ?
+				`${raid.pokemon.min_base_cp}-${raid.pokemon.max_base_cp} / ` +
+				`${raid.pokemon.min_boosted_cp}-${raid.pokemon.max_boosted_cp} ${raid.pokemon.boost_conditions.boosted
+					.map(condition => Helper.getEmoji(condition))
+					.join('')}` :
+				'',
 
 			raid_description = raid.is_exclusive ?
 				`EX Raid against ${pokemon}` :
@@ -959,7 +967,7 @@ class Raid {
 				.filter(attendee_entry => attendee_entry[1].status === RaidStatus.COMPLETE),
 			embed = new Discord.MessageEmbed();
 
-		embed.setColor(4437377);
+		embed.setColor('GREEN');
 		embed.setTitle(`Map Link: ${gym_name}`);
 		embed.setURL(gym_url);
 		embed.setDescription(raid_description);
@@ -975,6 +983,10 @@ class Raid {
 						'x2 ' :
 						''))
 				.join(''));
+		}
+
+		if (pokemon_cp_string) {
+			embed.addField('**Catch CP Ranges**', pokemon_cp_string);
 		}
 
 		embed.setFooter(end_time + raid_reporter, report_member.user.displayAvatarURL());
