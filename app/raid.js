@@ -1092,22 +1092,24 @@ class Raid {
 		let gym = Gym.getGym(raid.gym_id);
 		let gym_name = !!gym.nickname ? gym.nickname : gym.gymName;
 		let url = `http://api.openweathermap.org/data/2.5/weather?lat=${gym.gymInfo.latitude}&lon=${gym.gymInfo.longitude}&units=imperial&appid=${apiKey}`;
-		let returnMessage = '';
+		let return_message;
 		
-		returnMessage = request(url, function (err, response, body) {
+		return_message = request(url, function (err, response, body) {
 		  if(err){
 			console.log('error:', error);
 			return '';
 		  } else {
 			let weather = JSON.parse(body);
 			let weatherString = weather["weather"][0]["main"];
-			let message = `${weatherString} at ${gym_name}`;
-			console.log(message);
+			var message = `${weatherString} at ${gym_name}`;
+			console.log(`Message: ${message}`);
+			console.log(`NestedResponse: ${response}`);
 			return message;
 		  }
 		});			
-		
-		return returnMessage;
+		console.log(`return_message: ${return_message}`);
+		console.log(`Response: ${response}`);
+		return return_message;
 		
 	}
 	
