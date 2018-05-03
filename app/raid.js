@@ -11,7 +11,8 @@ const log = require('loglevel').getLogger('Raid'),
 	Helper = require('./helper'),
 	Gym = require('./gym'),
 	NaturalArgumentType = require('../types/natural'),
-	TimeType = require('../types/time');
+	TimeType = require('../types/time'),
+	request = require('request');
 
 class Raid {
 	constructor() {
@@ -1064,6 +1065,11 @@ class Raid {
 			embed.addField('**Location Information**', additional_information);
 		}
 
+		let weatherMessage = this.getWeatherForRaid(raid);
+		if (weatherMessage !== '') {
+			embed.addField('**Weather Information (BETA)**', weatherMessage);
+		}
+				
 		return {embed};
 	}
 
@@ -1079,6 +1085,26 @@ class Raid {
 			});
 	}
 
+	getWeatherForRaid(raid){
+		
+		let apiKey = '133c4c4e28f251daa629af97a280d623';
+		let gym = Gym.getGym(raid.gym_id);
+		let gym_name = !!gym.nickname ? gym.nickname : gym.gymName;
+		let url = `http://api.openweathermap.org/data/2.5/weather?lat=${gym.gymInfo.latitude}&lon=${gym.gymInfo.longitude}&units=imperial&appid=${apiKey}`;
+
+		request(url, function (err, response, body) {
+		  if(err){
+			console.log('error:', error);
+		  } else {
+			let weather = JSON.parse(body);
+			let weatherString = weather["weather"][0]["main"];
+			let message = `${weatherString} at ${gym_name}`;
+			console.log(message);
+			return message;
+		  }
+		});				
+	}
+	
 	raidExistsForGym(gym_id) {
 		return Object.values(this.raids)
 			.map(raid => raid.gym_id)
