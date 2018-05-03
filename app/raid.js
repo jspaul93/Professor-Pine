@@ -1108,7 +1108,6 @@ class Raid {
 		  }
 		});			
 		console.log(`return_message: ${return_message}`);
-		console.log(`Response: ${response}`);
 		return return_message;
 		
 	}
