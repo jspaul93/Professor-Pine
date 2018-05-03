@@ -1065,11 +1065,11 @@ class Raid {
 			embed.addField('**Location Information**', additional_information);
 		}
 
-		let weather_message = '';
-		weather_message += await this.getWeatherForRaid(raid);
-		if (weather_message !== '') {
-			embed.addField('__**Weather Information (BETA)**__', weather_message);
-		}
+		//let weather_message = '';
+		//weather_message += await this.getWeatherForRaid(raid);
+		//if (weather_message !== '') {
+		//	embed.addField('__**Weather Information (BETA)**__', weather_message);
+		//}
 		
 		return {embed};
 	}
@@ -1086,32 +1086,32 @@ class Raid {
 			});
 	}
 
-	async getWeatherForRaid(raid){
-		
-		let apiKey = '133c4c4e28f251daa629af97a280d623';
-		let gym = Gym.getGym(raid.gym_id);
-		let gym_name = !!gym.nickname ? gym.nickname : gym.gymName;
-		let url = `http://api.openweathermap.org/data/2.5/weather?lat=${gym.gymInfo.latitude}&lon=${gym.gymInfo.longitude}&units=imperial&appid=${apiKey}`;
-		let return_message;
-		var message = '';
-		
-		return_message = request(url, function (err, response, body) {
-		  if(err){
-			console.log('error:', error);
-			message = '';
-		  } else {
-			let weather = JSON.parse(body);
-			let weatherString = weather["weather"][0]["main"];
-			message = `${weatherString} at ${gym_name}`;
-			console.log(`Message: ${message}`);
-			console.log(`NestedResponse: ${response}`);
-		  }
-		  return message;
-		});			
-		console.log(`return_message: ${return_message}`);
-		return message;
-		
-	}
+//	async getWeatherForRaid(raid){
+//		
+//		let apiKey = '133c4c4e28f251daa629af97a280d623';
+//		let gym = Gym.getGym(raid.gym_id);
+//		let gym_name = !!gym.nickname ? gym.nickname : gym.gymName;
+//		let url = `http://api.openweathermap.org/data/2.5/weather?lat=${gym.gymInfo.latitude}&lon=${gym.gymInfo.longitude}&units=imperial&appid=${apiKey}`;
+//		let return_message;
+//		var message = '';
+//		
+//		return_message = request(url, function (err, response, body) {
+//		  if(err){
+//			console.log('error:', error);
+//			message = '';
+//		  } else {
+//			let weather = JSON.parse(body);
+//			let weatherString = weather["weather"][0]["main"];
+//			message = `${weatherString} at ${gym_name}`;
+//			console.log(`Message: ${message}`);
+//			console.log(`NestedResponse: ${response}`);
+//		  }
+//		  return message;
+//		});			
+//		console.log(`return_message: ${return_message}`);
+//		return message;
+//		
+//	}
 	
 	raidExistsForGym(gym_id) {
 		return Object.values(this.raids)
