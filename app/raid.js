@@ -1066,7 +1066,7 @@ class Raid {
 		}
 
 		let weather_message = '';
-		weather_message += this.getWeatherForRaid(raid);
+		weather_message += await this.getWeatherForRaid(raid);
 		if (weather_message !== '') {
 			embed.addField('__**Weather Information (BETA)**__', weather_message);
 		}
@@ -1086,7 +1086,7 @@ class Raid {
 			});
 	}
 
-	getWeatherForRaid(raid){
+	async getWeatherForRaid(raid){
 		
 		let apiKey = '133c4c4e28f251daa629af97a280d623';
 		let gym = Gym.getGym(raid.gym_id);
