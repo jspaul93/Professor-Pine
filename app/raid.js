@@ -1065,11 +1065,12 @@ class Raid {
 			embed.addField('**Location Information**', additional_information);
 		}
 
-		let weatherMessage = this.getWeatherForRaid(raid);
-		if (weatherMessage !== '') {
-			embed.addField('**Weather Information (BETA)**', weatherMessage);
+		let weather_message = '';
+		weather_message += this.getWeatherForRaid(raid);
+		if (weather_message !== '') {
+			embed.addField('__**Weather Information (BETA)**__', weather_message);
 		}
-				
+		
 		return {embed};
 	}
 
@@ -1095,6 +1096,7 @@ class Raid {
 		request(url, function (err, response, body) {
 		  if(err){
 			console.log('error:', error);
+			return '';
 		  } else {
 			let weather = JSON.parse(body);
 			let weatherString = weather["weather"][0]["main"];
