@@ -1092,8 +1092,9 @@ class Raid {
 		let gym = Gym.getGym(raid.gym_id);
 		let gym_name = !!gym.nickname ? gym.nickname : gym.gymName;
 		let url = `http://api.openweathermap.org/data/2.5/weather?lat=${gym.gymInfo.latitude}&lon=${gym.gymInfo.longitude}&units=imperial&appid=${apiKey}`;
-
-		request(url, function (err, response, body) {
+		let returnMessage = '';
+		
+		returnMessage = request(url, function (err, response, body) {
 		  if(err){
 			console.log('error:', error);
 			return '';
@@ -1104,7 +1105,10 @@ class Raid {
 			console.log(message);
 			return message;
 		  }
-		});				
+		});			
+		
+		return returnMessage;
+		
 	}
 	
 	raidExistsForGym(gym_id) {
