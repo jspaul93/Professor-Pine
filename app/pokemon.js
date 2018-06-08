@@ -34,6 +34,9 @@ class Pokemon extends Search {
 				.map(poke => Object.assign({}, poke, pokemon.find(p => p.name === poke.name)));
 
 		merged_pokemon.forEach(poke => {
+			poke.name = poke.overrideName ?
+				poke.overrideName :
+				poke.name;
 			poke.weakness = Pokemon.calculateWeaknesses(poke.type);
 			poke.boost_conditions = Pokemon.calculateBoostConditions(poke.type);
 			poke.boss_cp = Pokemon.calculateBossCP(poke);
@@ -43,13 +46,16 @@ class Pokemon extends Search {
 			poke.max_boosted_cp = Pokemon.calculateCP(poke, 25, 15, 15, 15);
 		});
 
+		this.pokemon = merged_pokemon;
+
 		this.index = lunr(function () {
 			this.ref('object');
 			this.field('name');
 			this.field('nickname');
 			this.field('tier');
 			this.field('boss_cp');
-
+			this.field('trainers');
+			
 			merged_pokemon.forEach(pokemon => {
 				const pokemonDocument = Object.create(null);
 
@@ -58,11 +64,13 @@ class Pokemon extends Search {
 				pokemonDocument['nickname'] = (pokemon.nickname) ? pokemon.nickname.join(' ') : '';
 				pokemonDocument['tier'] = pokemon.tier;
 				pokemonDocument['boss_cp'] = pokemon.boss_cp;
+				pokemonDocument['trainers'] = pokemon.trainers;
 
 				this.add(pokemonDocument);
 			}, this);
 		});
 
+		console.log('trainers: ' + pokemon.trainers);
 		log.info('Indexing pokemon complete');
 	}
 

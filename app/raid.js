@@ -1065,6 +1065,11 @@ class Raid {
 			embed.addField('**Location Information**', additional_information);
 		}
 
+		if (raid.pokemon.trainers !== undefined) {
+			let min_trainer_message = raid.pokemon.trainers + ' (doable w/ suboptomal lvl 20 counters/circumstances )'
+			embed.addField('__**Minimum Trainers**__', min_trainer_message);
+		}
+		
 		//let weather_message = '';
 		//weather_message += await this.getWeatherForRaid(raid);
 		//if (weather_message !== '') {
@@ -1085,7 +1090,7 @@ class Raid {
 					.catch(err => log.error(err));
 			});
 	}
-
+	
 //	async getWeatherForRaid(raid){
 //		
 //		let apiKey = '133c4c4e28f251daa629af97a280d623';

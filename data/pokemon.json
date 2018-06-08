@@ -248,7 +248,8 @@
   },
   {
     "name": "machamp",
-    "tier": 3
+    "tier": 3,
+	"trainers": 2
   },
   {
     "name": "bellsprout"
@@ -265,7 +266,8 @@
   },
   {
     "name": "tentacruel",
-    "tier": 2
+    "tier": 2,
+	"trainers": 1
   },
   {
     "name": "geodude"
@@ -321,7 +323,9 @@
     "tier": 2
   },
   {
-    "name": "shellder"
+    "name": "shellder",
+    "tier": 1,
+	"trainers": 1
   },
   {
     "name": "cloyster",
@@ -425,7 +429,8 @@
   },
   {
     "name": "starmie",
-    "tier": 3
+    "tier": 3,
+	"trainers": 2
   },
   {
     "name": "mr. mime"
@@ -458,7 +463,8 @@
     "nickname": [
       "karp"
     ],
-    "tier": 1
+    "tier": 1,
+	"trainers": 1
   },
   {
     "name": "gyarados"
@@ -475,7 +481,8 @@
   },
   {
     "name": "vaporeon",
-    "tier": 3
+    "tier": 3,
+	"trainers": 2
   },
   {
     "name": "jolteon",
@@ -490,14 +497,17 @@
     "tier": 3
   },
   {
-    "name": "omanyte"
+    "name": "omanyte",
+    "tier": 1,
+	"trainers": 1
   },
   {
     "name": "omastar",
     "tier": 3
   },
   {
-    "name": "kabuto"
+    "name": "kabuto",
+    "tier": 1
   },
   {
     "name": "kabutops",
@@ -543,7 +553,8 @@
   },
   {
     "name": "mewtwo",
-    "exclusive": true
+    "exclusive": true,
+	"trainers": 6
   },
   {
     "name": "mew"
@@ -573,7 +584,8 @@
   },
   {
     "name": "croconaw",
-    "tier": 1
+    "tier": 2,
+	"trainers": 1
   },
   {
     "name": "feraligatr",
@@ -653,7 +665,8 @@
     "tier": 3
   },
   {
-    "name": "sudowoodo"
+    "name": "sudowoodo",
+    "tier": 2
   },
   {
     "name": "politoed"
@@ -739,7 +752,8 @@
     "name": "scizor"
   },
   {
-    "name": "shuckle"
+    "name": "shuckle",
+    "tier": 3
   },
   {
     "name": "heracross"
@@ -758,7 +772,8 @@
     "name": "slugma"
   },
   {
-    "name": "magcargo"
+    "name": "magcargo",
+    "tier": 2
   },
   {
     "name": "swinub"
@@ -854,15 +869,18 @@
     "nickname": [
       "ttar"
     ],
-    "tier": 4
+    "tier": 4,
+	"trainers": 5
   },
   {
     "name": "lugia",
     "tier": 5
   },
   {
-    "name": "ho-oh",
+    "name": "ho_oh",
+    "overrideName": "ho-oh",
     "nickname": [
+      "ho-oh",
       "hooh",
       "hoho",
       "santa"
@@ -895,7 +913,9 @@
     "name": "mudkip"
   },
   {
-    "name": "marshtomp"
+    "name": "marshtomp",
+    "tier": 2,
+	"trainers": 1
   },
   {
     "name": "swampert"
@@ -1016,7 +1036,8 @@
     "name": "azurill"
   },
   {
-    "name": "nosepass"
+    "name": "nosepass",
+    "tier": 2
   },
   {
     "name": "skitty"
@@ -1030,7 +1051,8 @@
   },
   {
     "name": "mawile",
-    "tier": 2
+    "tier": 2,
+	"trainers": 1
   },
   {
     "name": "aron"
@@ -1040,7 +1062,8 @@
   },
   {
     "name": "aggron",
-    "tier": 4
+    "tier": 4,
+	"trainers": 7
   },
   {
     "name": "meditite"
@@ -1080,11 +1103,14 @@
     "name": "carvanha"
   },
   {
-    "name": "sharpedo"
+    "name": "sharpedo",
+    "tier": 3,
+	"trainers": 1
   },
   {
     "name": "wailmer",
-    "tier": 1
+    "tier": 1,
+	"trainers": 1
   },
   {
     "name": "wailord"
@@ -1136,10 +1162,12 @@
     "name": "seviper"
   },
   {
-    "name": "lunatone"
+    "name": "lunatone",
+    "tier": 3
   },
   {
-    "name": "solrock"
+    "name": "solrock",
+    "tier": 3
   },
   {
     "name": "barboach"
@@ -1161,13 +1189,15 @@
     "tier": 3
   },
   {
-    "name": "lileep"
+    "name": "lileep",
+    "tier": 1
   },
   {
     "name": "cradily"
   },
   {
-    "name": "anorith"
+    "name": "anorith",
+    "tier": 1
   },
   {
     "name": "armaldo"
@@ -1206,7 +1236,8 @@
   },
   {
     "name": "absol",
-    "tier": 4
+    "tier": 4,
+	"trainers": 4
   },
   {
     "name": "wynaut"
@@ -1226,7 +1257,8 @@
   },
   {
     "name": "walrein",
-    "tier": 4
+    "tier": 4,
+	"trainers": 4
   },
   {
     "name": "clamperl"
@@ -1283,7 +1315,8 @@
   },
   {
     "name": "kyogre",
-    "tier": 5
+    "tier": 5,
+	"trainers": 6
   },
   {
     "name": "groudon",
