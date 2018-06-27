@@ -831,7 +831,8 @@
   },
   {
     "name": "houndoom",
-    "tier": 4
+    "tier": 4,
+	"trainers": 3
   },
   {
     "name": "kingdra"
@@ -874,15 +875,18 @@
   },
   {
     "name": "raikou",
-    "tier": 5
+    "tier": 5,
+	"trainers": 7
   },
   {
     "name": "entei",
-    "tier": 5
+    "tier": 5,
+	"trainers": 7
   },
   {
     "name": "suicune",
-    "tier": 5
+    "tier": 5,
+	"trainers": 7
   },
   {
     "name": "larvitar"
@@ -900,11 +904,12 @@
   },
   {
     "name": "lugia",
-    "tier": 5
+    "tier": 5,
+	"trainers": 7
   },
   {
     "name": "ho_oh",
-    "overrideName": "ho-oh",
+    "overrideName": "Ho-Oh",
     "nickname": [
       "ho-oh",
       "hooh",
@@ -1107,7 +1112,8 @@
   },
   {
     "name": "manectric",
-    "tier": 2
+    "tier": 2,
+	"trainers": 1
   },
   {
     "name": "plusle"
@@ -1220,7 +1226,8 @@
   },
   {
     "name": "claydol",
-    "tier": 3
+    "tier": 3,
+	"trainers": 3
   },
   {
     "name": "lileep",
@@ -1252,14 +1259,16 @@
   },
   {
     "name": "shuppet",
-    "tier": 1
+    "tier": 1,
+	"trainers": 1
   },
   {
     "name": "banette"
   },
   {
     "name": "duskull",
-    "tier": 1
+    "tier": 1,
+	"trainers": 1
   },
   {
     "name": "dusclops"
@@ -1332,15 +1341,18 @@
   },
   {
     "name": "regirock",
-    "tier": 5
+    "tier": 5,
+	"trainers": 7
   },
   {
     "name": "regice",
-    "tier": 5
+    "tier": 5,
+	"trainers": 7
   },
   {
     "name": "registeel",
-    "tier": 5
+    "tier": 5,
+	"trainers": 6
   },
   {
     "name": "latias",
@@ -1359,11 +1371,13 @@
   },
   {
     "name": "groudon",
-    "tier": 5
+    "tier": 5,
+	"trainers": 6
   },
   {
     "name": "rayquaza",
-    "tier": 5
+    "tier": 5,
+	"trainers": 5
   },
   {
     "name": "jirachi"

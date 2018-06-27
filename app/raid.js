@@ -895,12 +895,30 @@ class Raid {
 	}
 
 	async getFormattedMessage(raid) {
+				
+		let tierEmoji = '';
+		switch(raid.pokemon.tier) {
+			case 1: 
+			case 2:
+				tierEmoji = `${private_settings.misc_graphics_url_base}t1.png`;
+				break;
+			case 3: 
+			case 4:
+				tierEmoji = `${private_settings.misc_graphics_url_base}t3.png`;
+				break;
+			case 5: 
+				tierEmoji = `${private_settings.misc_graphics_url_base}t5.png`;
+				break;
+		}
+
+		console.log('tierEmoji:', tierEmoji);
+		
 		const pokemon = !!raid.pokemon.name ?
 			raid.pokemon.name.charAt(0).toUpperCase() + raid.pokemon.name.slice(1) :
 			'????',
 			pokemon_url = !!raid.pokemon.name ?
 				`${private_settings.pokemon_url_base}${pokemon}-Pokemon-Go.png` :
-				'',
+				tierEmoji,
 			pokemon_cp_string = raid.pokemon.boss_cp > 0 ?
 				`${raid.pokemon.min_base_cp}-${raid.pokemon.max_base_cp} / ` +
 				`${raid.pokemon.min_boosted_cp}-${raid.pokemon.max_boosted_cp} ${raid.pokemon.boost_conditions.boosted
@@ -1066,7 +1084,7 @@ class Raid {
 		}
 
 		if (raid.pokemon.trainers !== undefined) {
-			let min_trainer_message = raid.pokemon.trainers + ' (doable w/ suboptomal lvl 20 counters/circumstances )'
+			let min_trainer_message = raid.pokemon.trainers + ' (doable w/ suboptimal lvl 20 counters/circumstances )'
 			embed.addField('__**Minimum Trainers**__', min_trainer_message);
 		}
 		
