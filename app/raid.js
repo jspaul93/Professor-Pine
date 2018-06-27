@@ -910,8 +910,6 @@ class Raid {
 				tierEmoji = `${private_settings.misc_graphics_url_base}t5.png`;
 				break;
 		}
-
-		console.log('tierEmoji:', tierEmoji);
 		
 		const pokemon = !!raid.pokemon.name ?
 			raid.pokemon.name.charAt(0).toUpperCase() + raid.pokemon.name.slice(1) :
