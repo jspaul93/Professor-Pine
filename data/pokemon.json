@@ -29,7 +29,7 @@
   {
     "name": "bulbasaur",
     "tier": 1,
-	"trainers": 1
+    "trainers": 1
   },
   {
     "name": "ivysaur",
@@ -42,7 +42,7 @@
   {
     "name": "charmander",
     "tier": 1,
-	"trainers": 1
+    "trainers": 1
   },
   {
     "name": "charmeleon",
@@ -55,7 +55,7 @@
   {
     "name": "squirtle",
     "tier": 1,
-	"trainers": 1
+    "trainers": 1
   },
   {
     "name": "wartortle",
@@ -97,7 +97,21 @@
     "name": "rattata"
   },
   {
+    "name": "rattata_alola",
+    "overrideName": "Alolan Rattata",
+    "nickname": [
+      "alo"
+    ]
+  },
+  {
     "name": "raticate"
+  },
+  {
+    "name": "raticate_alola",
+    "overrideName": "Alolan Raticate",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "spearow"
@@ -118,11 +132,33 @@
     "name": "raichu"
   },
   {
+    "name": "raichu_alola",
+    "overrideName": "Alolan Raichu",
+    "nickname": [
+      "alo"
+    ],
+    "tier": 3
+  },
+  {
     "name": "sandshrew"
+  },
+  {
+    "name": "sandshrew_alola",
+    "overrideName": "Alolan Sandshrew",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "sandslash",
     "tier": 2
+  },
+  {
+    "name": "sandslash_alola",
+    "overrideName": "Alolan Sandslash",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "nidoran♀"
@@ -154,8 +190,22 @@
     "name": "vulpix"
   },
   {
+    "name": "vulpix_alola",
+    "overrideName": "Alolan Vulpix",
+    "nickname": [
+      "alo"
+    ]
+  },
+  {
     "name": "ninetales",
     "tier": 3
+  },
+  {
+    "name": "ninetales_alola",
+    "overrideName": "Alolan Ninetales",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "jigglypuff"
@@ -196,13 +246,41 @@
     "name": "diglett"
   },
   {
+    "name": "diglett_alola",
+    "overrideName": "Alolan Diglett",
+    "nickname": [
+      "alo"
+    ]
+  },
+  {
     "name": "dugtrio"
+  },
+  {
+    "name": "dugtrio_alola",
+    "overrideName": "Alolan Dugtrio",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "meowth"
   },
   {
+    "name": "meowth_alola",
+    "overrideName": "Alolan Meowth",
+    "nickname": [
+      "alo"
+    ]
+  },
+  {
     "name": "persian"
+  },
+  {
+    "name": "persian_alola",
+    "overrideName": "Alolan Persian",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "psyduck"
@@ -280,12 +358,33 @@
     "name": "geodude"
   },
   {
+    "name": "geodude_alola",
+    "overrideName": "Alolan Geodude",
+    "nickname": [
+      "alo"
+    ]
+  },
+  {
     "name": "graveler"
+  },
+  {
+    "name": "graveler_alola",
+    "overrideName": "Alolan Graveler",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "golem",
     "tier": 4,
 	"trainers": 5
+  },
+  {
+    "name": "golem_alola",
+    "overrideName": "Alolan Golem",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "ponyta"
@@ -327,9 +426,23 @@
     "name": "grimer"
   },
   {
+    "name": "grimer_alola",
+    "overrideName": "Alolan Grimer",
+    "nickname": [
+      "alo"
+    ]
+  },
+  {
     "name": "muk",
     "tier": 2,
 	"trainers": 1
+  },
+  {
+    "name": "muk_alola",
+    "overrideName": "Alolan Muk",
+    "nickname": [
+      "alo"
+    ]
   },
   {
     "name": "shellder",
@@ -378,15 +491,33 @@
   },
   {
     "name": "exeggutor",
-    "tier": 2,
+    "nickname": [
+      "exegg"
+    ],
 	"trainers": 1
+  },
+  {
+    "name": "exeggutor_alola",
+    "overrideName": "Alolan Exeggutor",
+    "nickname": [
+      "alo",
+      "exegg"
+    ],
+    "tier": 2
   },
   {
     "name": "cubone"
   },
   {
-    "name": "marowak",
-    "tier": 2
+    "name": "marowak"
+  },
+  {
+    "name": "marowak_alola",
+    "overrideName": "Alolan Marowak",
+    "nickname": [
+      "alo"
+    ],
+    "tier": 4
   },
   {
     "name": "hitmonlee",
@@ -841,7 +972,9 @@
     "name": "phanpy"
   },
   {
-    "name": "donphan"
+    "name": "donphan",
+	"tier": 4,
+	"trainers": 3
   },
   {
     "name": "porygon2"
@@ -1014,7 +1147,8 @@
     "name": "ralts"
   },
   {
-    "name": "kirlia"
+    "name": "kirlia",
+    "tier": 2
   },
   {
     "name": "gardevoir"
@@ -1061,7 +1195,8 @@
     "name": "exploud"
   },
   {
-    "name": "makuhita"
+    "name": "makuhita",
+    "tier": 1
   },
   {
     "name": "hariyama"
@@ -1102,7 +1237,8 @@
 	"trainers": 7
   },
   {
-    "name": "meditite"
+    "name": "meditite",
+    "tier": 1
   },
   {
     "name": "medicham"
