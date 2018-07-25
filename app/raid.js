@@ -87,6 +87,11 @@ class Raid {
             // raid's end time is set (or last possible time) in the past, even past the grace period,
             // so schedule its deletion
             raid.deletion_time = deletion_time;
+
+            var raidChannel = this.client.channels.get(raid.channel_id);
+            var newChannelName = Raid.generateChannelName(raid);
+            raidChannel.setName(newChannelName);
+
             if(settings.send_deletion_warning==true){
               this.sendDeletionWarningMessage(raid);
             }
@@ -978,6 +983,10 @@ class Raid {
     embed.setURL(gym_url);
     embed.setDescription(raid_description);
 
+    var raidChannel = this.client.channels.get(raid.channel_id);
+    var newChannelName = Raid.generateChannelName(raid);
+    raidChannel.setName(newChannelName);
+
     //we assume this is an egg, not a pokemon
     if (pokemon_url.includes("_undefined_")){
 
@@ -1162,17 +1171,48 @@ class Raid {
         .split(' ')
         .filter(token => token.length > 0)
         .join('-');
+
+    //check number of attendees
     var updatedPokemonName = pokemon_name;
-    if(raid.is_exclusive){
-      updatedPokemonName = '💎' + updatedPokemonName;
+    var attendeeEntries = Object.entries(raid.attendees);
+    var totalAttendeeCount = attendeeEntries.length;
+
+    //check for a start time for any group
+    var startTimeIsSet = false;
+    raid.groups
+    .forEach(group => {
+      if (group.start_time) {
+        startTimeIsSet = true;
+      }
+    });
+
+    //check raid end time
+    var currentTime = moment().valueOf();
+    var raidIsOver = false;
+    if(currentTime >= raid.end_time){
+      raidIsOver = true;
+    };
+
+    if(raidIsOver){
+      updatedPokemonName = '❌' + updatedPokemonName;
     }else{
-      if(raid.trainers > 1){
-        updatedPokemonName = '🔥' + updatedPokemonName;
+      if(raid.is_exclusive){
+        updatedPokemonName = '💎' + updatedPokemonName;
       }else{
-        updatedPokemonName = '📌' + updatedPokemonName;
+        if(totalAttendeeCount > 1){
+          if(startTimeIsSet){
+            updatedPokemonName = '⏰' + updatedPokemonName;
+          }else{
+            updatedPokemonName = '🔥' + updatedPokemonName;
+          }
+        }else{
+          updatedPokemonName = '📌' + updatedPokemonName;
+        }
       }
     }
+
     return updatedPokemonName + '-' + gym_name;
+
   }
 
   static buildAttendeesList(attendees_list, emoji_name, total_attendee_count) {
