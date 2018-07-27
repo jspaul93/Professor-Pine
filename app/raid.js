@@ -935,14 +935,17 @@ class Raid {
       end_time = raid.end_time !== TimeType.UNDEFINED_END_TIME ?
         `Raid available until ${moment(raid.end_time).calendar(null, calendar_format)}, ` :
         'Raid end time currently unset, ',
+      
       hatch_time = !!raid.hatch_time ?
         moment(raid.hatch_time) :
         '',
-      hatch_label = !!raid.hatch_time ?
-        now > hatch_time ?
-          '__Egg Hatched At__' :
-          '__Egg Hatch Time__' :
-        '',
+
+      //
+      // I modified this so that the change below (always showing the 'hatch time' section) will work
+      hatch_label = !!raid.pokemon.name ? 
+        '__Egg Hatched At__' : 
+        '__Egg Hatch Time__',
+      //
 
       gym = Gym.getGym(raid.gym_id),
       gym_name = !!gym.nickname ?
@@ -1074,12 +1077,18 @@ class Raid {
       });
 
     if (complete_attendees.length > 0) {
-      embed.addField('__Complete__', Raid.buildAttendeesList(complete_attendees, 'premierball', total_attendee_count));
+      embed.addField('__Complete__', Raid.buildAttendeesList(complete_attendees, 'premierball', total_attendee_count), false);
     }
 
     if (!!raid.hatch_time) {
-      embed.addField(hatch_label, hatch_time.calendar(null, calendar_format));
+      embed.addField(hatch_label, hatch_time.calendar(null, calendar_format), false);
+    //
+    // added else branch to always show the hatch time, this was my solution to
+    // the new "Command Shortcuts" section going in-line with the tranier lists
+  }else{
+      embed.addField(hatch_label, '(not set)', false);
     }
+    //
 
     let additional_information = '';
 
@@ -1100,13 +1109,21 @@ class Raid {
     }
 
     if (additional_information !== '') {
-      embed.addField('**Location Information**', additional_information);
+      embed.addField('**Location Information**', additional_information, false);
     }
 
 	  if (raid.pokemon.trainers !== undefined) {
 		  let min_trainer_message = raid.pokemon.trainers + ' (doable w/ suboptimal lvl 20 counters/circumstances )'
-		  embed.addField('__**Minimum Trainers**__', min_trainer_message);
-	  }
+		  embed.addField('__**Minimum Trainers**__', min_trainer_message, false);
+    }
+    
+    //
+    //added help section to the status message so that users can work more efficiently
+    embed.addField('**Command Shortcuts**','`!i` - interested\n`!j` - omw\n`!h` - here\n`!d` - done\n`!l` - leave', true);
+    embed.addField('(continued)','`!g` - gym name\n`!b` - boss name\n`!t` - hatch\n`!e` - end\n`!help` - get help', true);
+    //added a horizontal rule to break up the footer from the rest of the imbed, looks better imo
+    embed.setImage(`${private_settings.misc_graphics_url_base}discord_divider.png`);
+    //
     
 	//let weather_message = '';
 	//weather_message += await this.getWeatherForRaid(raid);

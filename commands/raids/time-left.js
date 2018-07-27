@@ -13,10 +13,10 @@ class TimeRemainingCommand extends Commando.Command {
       name: 'left',
       group: CommandGroup.RAID_CRUD,
       memberName: 'left',
-      aliases: ['time-left', 'time-remaining', 'remaining', 'time-remain', 'remain', 'end-time', 'end', 'ends', 'ending'],
+      aliases: ['time-left', 'time-remaining', 'remaining', 'time-remain', 'remain', 'end-time', 'end', 'ends', 'ending','e'],
       description: 'Sets the remaining time for an existing raid.',
       details: 'Use this command to set remaining time on a raid.',
-      examples: ['\t!left 45', '\t!remain 50'],
+      examples: ['\t!left 45', '\t!remain 50', '\t!e 1:45'],
       args: [
         {
           key: TimeParameter.END,

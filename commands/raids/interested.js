@@ -16,10 +16,10 @@ class InterestedCommand extends Commando.Command {
       name: 'maybe',
       group: CommandGroup.BASIC_RAID,
       memberName: 'maybe',
-      aliases: ['interested', 'interest', 'hmm'],
+      aliases: ['interested', 'interest', 'hmm','i'],
       description: 'Expresses interest in an existing raid without committing to it.',
       details: 'Use this command to express interest in a raid.',
-      examples: ['\t!maybe', '\t!interested', '\t!hmm'],
+      examples: ['\t!maybe', '\t!interested', '\t!hmm', '\t!i'],
       args: [
         {
           key: 'additional_attendees',

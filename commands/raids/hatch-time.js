@@ -13,10 +13,10 @@ class HatchTimeCommand extends Commando.Command {
       name: 'hatch',
       group: CommandGroup.RAID_CRUD,
       memberName: 'hatch',
-      aliases: ['hatch-time', 'hatches', 'hatching'],
+      aliases: ['hatch-time', 'hatches', 'hatching', 't'],
       description: 'Sets the time an existing raid hatches.',
       details: 'Use this command to set the hatch time for a raid.',
-      examples: ['\t!hatch 1:45', '\t!hatch-time 50', '\t!hatches at 9:45'],
+      examples: ['\t!hatch 1:45', '\t!hatch-time 50', '\t!hatches at 9:45', '\t!t 1:45'],
       args: [
         {
           key: TimeParameter.HATCH,

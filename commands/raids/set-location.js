@@ -13,15 +13,15 @@ class SetLocationCommand extends Commando.Command {
       name: 'gym',
       group: CommandGroup.RAID_CRUD,
       memberName: 'gym',
-      aliases: ['set-location', 'set-gym', 'location'],
+      aliases: ['set-location', 'set-gym', 'location', 'g'],
       description: 'Changes the location for an existing raid.\n',
       details: 'Use this command to set the location of a raid.  This command is channel sensitive, meaning it only finds gyms associated with the enclosing region.',
-      examples: ['\t!gym Unicorn', '\t!location \'Bellevue Park\'', '\t!location squirrel'],
+      examples: ['\t!gym Winner', '\t!location \'Christmas Torch\'', '\t!location squirrel'],
       args: [
         {
           key: 'gym_id',
           label: 'gym',
-          prompt: 'Where is the raid taking place?\nExample: `manor theater`\n',
+          prompt: 'Where is the raid taking place?\nExample: `Christmas Torch`\n',
           type: 'gym',
           wait: 60
         }

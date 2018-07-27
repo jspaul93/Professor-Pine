@@ -16,10 +16,10 @@ class CheckInCommand extends Commando.Command {
       name: 'here',
       group: CommandGroup.BASIC_RAID,
       memberName: 'here',
-      aliases: ['arrive', 'arrived', 'present', 'check-in'],
+      aliases: ['arrive', 'arrived', 'present', 'check-in', 'h'],
       description: 'Lets others know you have arrived at an active raid.',
       details: 'Use this command to tell everyone you are at the raid location and to ensure that no one is left behind.',
-      examples: ['\t!here +1', '\t!arrived', '\t!present'],
+      examples: ['\t!here +1', '\t!arrived', '\t!present', '\t!h'],
       args: [
         {
           key: 'additional_attendees',
