@@ -1119,8 +1119,7 @@ class Raid {
     
     //
     //added help section to the status message so that users can work more efficiently
-    embed.addField('**Command Shortcuts**','`!i` - interested\n`!j` - omw\n`!h` - here\n`!d` - done\n`!l` - leave', true);
-    embed.addField('(continued)','`!g` - gym name\n`!b` - boss name\n`!t` - hatch\n`!e` - end\n`!help` - get help', true);
+    embed.addField('**Quick Tips**','`!i` - interested\n`!j` - omw\n`!h` - here\n`!d` - done\n`!l` - leave\n`!help` - get help', true);
     //added a horizontal rule to break up the footer from the rest of the imbed, looks better imo
     embed.setImage(`${private_settings.misc_graphics_url_base}discord_divider.png`);
     //
