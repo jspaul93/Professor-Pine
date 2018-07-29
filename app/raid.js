@@ -991,7 +991,7 @@ class Raid {
     raidChannel.setName(newChannelName);
 
     //we assume this is an egg, not a pokemon
-    if (pokemon_url.includes("_undefined_")){
+    if (pokemon_url == ''){
 
       let tierEmoji = '';
       switch(raid.pokemon.tier) {
@@ -1009,6 +1009,10 @@ class Raid {
       }
 
       embed.setThumbnail(tierEmoji);
+
+      if(raid.pokemon.boss_list){
+        embed.addField('**Possible Bosses**', raid.pokemon.boss_list);
+      }
 
     } else {
 
@@ -1085,7 +1089,7 @@ class Raid {
     //
     // added else branch to always show the hatch time, this was my solution to
     // the new "Command Shortcuts" section going in-line with the tranier lists
-  }else{
+    }else{
       embed.addField(hatch_label, '(not set)', false);
     }
     //

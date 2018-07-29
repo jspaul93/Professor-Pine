@@ -40,6 +40,38 @@ class Pokemon extends Search {
       merged_pokemon = pokemon_metadata
         .map(poke => Object.assign({}, poke, pokemon.find(p => p.name === poke.name)));
 
+    var bossList1 = '';
+    var bossList2 = '';
+    var bossList3 = '';
+    var bossList4 = '';
+    var bossList5 = '';
+    merged_pokemon.forEach(poke=>{
+      if(poke.active){
+        var pokeName = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
+        if(poke.form=='alola'){
+          pokeName = poke.overrideName;
+        }
+        switch(poke.tier)
+        {
+          case 1:
+            bossList1 += pokeName + '\n';
+            break;
+          case 2:
+            bossList2 += pokeName + '\n';
+            break;
+          case 3:
+            bossList3 += pokeName + '\n';
+            break;
+          case 4:
+            bossList4 += pokeName + '\n';
+            break;
+          case 5:
+            bossList5 += pokeName + '\n';
+            break;
+        }
+      };
+    });
+
     merged_pokemon.forEach(poke => {
       let form;
 
@@ -52,7 +84,7 @@ class Pokemon extends Search {
         default:
           form = '00';
           break;
-      }
+      };
 
       poke.name = poke.overrideName ?
         poke.overrideName :
@@ -65,7 +97,28 @@ class Pokemon extends Search {
         poke.max_base_cp = Pokemon.calculateCP(poke, 20, 15, 15, 15);
         poke.min_boosted_cp = Pokemon.calculateCP(poke, 25, 10, 10, 10);
         poke.max_boosted_cp = Pokemon.calculateCP(poke, 25, 15, 15, 15);
-        poke.url = `${privateSettings.pokemon_url_base}pokemon_icon_${poke.number}_${form}.png`
+        poke.url = `${privateSettings.pokemon_url_base}pokemon_icon_${poke.number}_${form}.png`;
+      } else {
+
+        switch(poke.tier)
+        {
+          case 1:
+            poke.boss_list = bossList1;
+            break;
+          case 2:
+            poke.boss_list = bossList2;
+            break;
+          case 3:
+            poke.boss_list = bossList3;
+            break;
+          case 4:
+            poke.boss_list = bossList4;
+            break;
+          case 5:
+            poke.boss_list = bossList5;
+            break;
+        };
+
       }
     });
 
@@ -78,6 +131,7 @@ class Pokemon extends Search {
       this.field('tier');
       this.field('boss_cp');
       this.field('trainers');
+      this.field('active');
 
       merged_pokemon.forEach(pokemon => {
         const pokemonDocument = Object.create(null);
@@ -88,12 +142,11 @@ class Pokemon extends Search {
         pokemonDocument['tier'] = pokemon.tier;
         pokemonDocument['boss_cp'] = pokemon.boss_cp;
         pokemonDocument['trainers'] = pokemon.trainers;
+        pokemonDocument['active'] = pokemon.active;
 
         this.add(pokemonDocument);
       }, this);
     });
-
-    console.log('trainers: ' + pokemon.trainers);
     log.info('Indexing pokemon complete');
   }
 
