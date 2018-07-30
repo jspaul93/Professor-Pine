@@ -139,7 +139,8 @@
       "alo"
     ],
     "active": true,
-    "tier": 3
+    "tier": 3,
+	"trainers": 3
   },
   {
     "name": "sandshrew"
@@ -984,7 +985,7 @@
   },
   {
     "name": "donphan",
-    "tier": 4,
+    "tier": 3,
     "active": true,
   	"trainers": 3
   },
